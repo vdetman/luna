@@ -1,30 +1,39 @@
 # Luna - Laravel API Project
 
-Laravel API проект с Docker конфигурацией для разработки.
+## 1. Clone & Preparing
+```
+cd project_folder
+git clone https://github.com/vdetman/luna.git .
+composer install
+```
 
-## Важно
-В .env:
+## 2. ENV
+```
+cp .env.example .env
+```
 - DB_HOST=db
 - API_TOKENS=SomeSecureTokenWhichWillBeUsedByApi
 
-## Старт Docker
+## 3. Docker
 
-### 1. Сборка
+### Сборка
 ```
 docker compose up -d
 ```
 
-### 2. Миграции
+### Миграции
 ```
 docker compose run --rm app sh -c "php artisan migrate"
 ```
 
-### 3. Заполнить тестовыми данными
+### Заполнить тестовыми данными
 ```
 docker compose run --rm app sh -c "php artisan migrate --seed"
 ```
 
-### 3.1. Перезаполнить тестовыми данными
+### Если нужно перезаполнить тестовыми данными
 ```
 docker compose run --rm app sh -c "php artisan migrate:fresh --seed"
 ```
+
+Welcome to http://localhost:8080/api/documentation
